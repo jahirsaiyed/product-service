@@ -23,3 +23,7 @@ You do not need a build before running as application image is already built and
 If you need to build the image again run build.bat file
 
 ![product-service-architecture](https://user-images.githubusercontent.com/5157624/116121653-e4af4700-a6d1-11eb-8a5a-3315c4e32919.png)
+
+Further enhancements TBD :
+* Pagination
+* Kafka connect for syncing new documents to elasticsearch from kafka messages
