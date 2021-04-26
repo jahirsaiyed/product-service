@@ -17,3 +17,5 @@ Run below command from the root directory of project
 
 You do not need a build before running as application image is already built and pushed to docker hub.
 If you need to build the image again run build.bat file
+
+![product-service Architecure] (product-service-architecture.png)
