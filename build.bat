@@ -1,0 +1,1 @@
+gradlew bootJar -Pprod jibDockerBuild & docker tag product-search:0.0.1-SNAPSHOT jahirss/product-search:latest & docker push jahirss/product-search:latest
