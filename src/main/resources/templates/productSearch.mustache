@@ -19,7 +19,7 @@
                       "must": [
 					    {{#announceDate}}
                         {
-                          "query_string": {
+                          "match": {
                             "release.announceDate": "{{announceDate}}"
                           }
                         },{{/announceDate}}
