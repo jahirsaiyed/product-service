@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
@@ -35,6 +36,9 @@ public class ProductController {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Value("${elasticsearch.httpUrls}")
+    private String elasticSearchUrls;
+
     @Autowired
     private ProductSearchRepositoryV2 productSearchRepositoryV2;
 
@@ -58,12 +62,12 @@ public class ProductController {
         File resource = new ClassPathResource("sample_products.json").getFile();
         File indexDefinition = new ClassPathResource("product-master-idx.json").getFile();
         Map index = objectMapper.readValue(indexDefinition, Map.class);
-        restTemplate.put("http://localhost:9200/products-master-idx", index, String.class);
+        restTemplate.put(elasticSearchUrls + "/products-master-idx", index, String.class);
 
         List<Product> products = Arrays.asList(objectMapper.readValue(resource, Product[].class));
         for (Product product : products) {
             HttpEntity<Product> request = new HttpEntity<Product>(product);
-            String response = restTemplate.postForObject("http://localhost:9200/products-master-idx/_doc/"+product.getId(), request, String.class);
+            String response = restTemplate.postForObject(elasticSearchUrls + "/products-master-idx/_doc/"+product.getId(), request, String.class);
             System.out.println(response);
         }
         return new ResponseEntity<>("Done", HttpStatus.OK);

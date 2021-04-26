@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ProductSearchRequest {
-    private Integer priceEur;
+    private Double priceEur;
     private String sim;
     private String announceDate;
 }
