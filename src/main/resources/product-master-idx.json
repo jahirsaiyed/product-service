@@ -1,0 +1,85 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 4,
+      "number_of_replicas": 1,
+      "refresh_interval": "1s"
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "phone": {
+        "type": "text",
+        "norms": false,
+        "similarity": "boolean",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          },
+          "terms": {
+            "type": "token_count",
+            "analyzer": "standard"
+          }
+        }
+      },
+      "brand": {
+        "type": "keyword"
+      },
+      "id": {
+        "type": "long"
+      },
+      "picture": {
+        "type": "keyword"
+      },
+      "sim": {
+        "type": "keyword"
+      },
+      "resolution": {
+        "type": "keyword"
+      },
+      "release": {
+        "type": "nested",
+        "properties": {
+          "announceDate": {
+            "type": "text",
+            "norms": false,
+            "similarity": "boolean",
+            "fields": {
+              "raw": {
+                "type": "keyword"
+              },
+              "terms": {
+                "type": "token_count",
+                "analyzer": "standard"
+              }
+            }
+          },
+          "priceEur": {
+            "type": "keyword"
+          }
+        }
+      },
+      "hardware": {
+        "type": "nested",
+        "properties": {
+          "audioJack": {
+            "type": "keyword"
+          },
+          "gps": {
+            "type": "keyword"
+          },
+          "battery": {
+            "type": "keyword"
+          }
+        }
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "version": {
+        "type": "keyword"
+      }
+    }
+  }
+}
