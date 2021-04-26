@@ -1,0 +1,53 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [
+			  {{#sim}}
+              {
+                "match": {
+                  "sim": "{{sim}}"
+                }
+              },{{/sim}}
+              {
+                "nested": {
+                  "path": "release",
+                  "query": {
+                    "bool": {
+                      "must": [
+					    {{#announceDate}}
+                        {
+                          "query_string": {
+                            "release.announceDate": "{{announceDate}}"
+                          }
+                        },{{/announceDate}}
+						{{#priceEur}}
+                        {
+                          "match": {
+                            "release.priceEur": {{priceEur}}
+                          }
+                        },{{/priceEur}}
+                        {
+                          "exists" : {
+                              "field" : "release.announceDate"
+                            }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "exists" : {
+              "field" : "id"
+            }
+        }
+      ]
+    }
+  }
+}
