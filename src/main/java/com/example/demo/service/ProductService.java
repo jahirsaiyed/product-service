@@ -6,5 +6,5 @@ import com.example.demo.service.dto.ProductSearchRequest;
 import java.util.List;
 
 public interface ProductService {
-    List<ProductSearchDTO> search(ProductSearchRequest productSearchRequest);
+    ProductSearchResultDTO search(ProductSearchRequest productSearchRequest);
 }

@@ -1,6 +1,8 @@
 package com.example.demo.service.mapper;
 
 import com.example.demo.repository.Product;
+import com.example.demo.repository.ProductResult;
+import com.example.demo.service.ProductSearchResultDTO;
 import com.example.demo.service.dto.ProductSearchDTO;
 import com.example.demo.service.dto.ProductSearchRequest;
 import org.mapstruct.Mapper;
@@ -22,5 +24,7 @@ public interface ProductMapper {
 
     ProductSearchDTO map(Product product);
     List<ProductSearchDTO> map(List<Product> product);
+
+    ProductSearchResultDTO map(ProductResult result);
 
 }

@@ -33,7 +33,18 @@
         "type": "keyword"
       },
       "sim": {
-        "type": "keyword"
+        "type": "text",
+        "norms": false,
+        "similarity": "boolean",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          },
+          "terms": {
+            "type": "token_count",
+            "analyzer": "standard"
+          }
+        }
       },
       "resolution": {
         "type": "keyword"
