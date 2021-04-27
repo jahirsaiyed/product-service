@@ -74,3 +74,12 @@ services:
         #
         echo "Launching Kafka Connect worker"
         /etc/confluent/docker/run
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411
+
+  eureka-server:
+    image:  jahirss/service-discovery
+    ports:
+      - 8761:8761
