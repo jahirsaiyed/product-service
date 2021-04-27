@@ -25,5 +25,8 @@ If you need to build the image again run build.bat file
 ![product-service-architecture](https://user-images.githubusercontent.com/5157624/116121653-e4af4700-a6d1-11eb-8a5a-3315c4e32919.png)
 
 Further enhancements TBD :
+* Spring cloud config for storing the elasticsearch connection details
+* Resilience4j configurations for ensuring application health in load conditions 
+* Service registry 
 * Pagination
 * Kafka connect for syncing new documents to elasticsearch from kafka messages
