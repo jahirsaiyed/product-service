@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -42,6 +43,16 @@ public class ProductController {
     private ProductMapper mapper = Mappers.getMapper(ProductMapper.class);
     @Autowired
     RestTemplate restTemplate;
+
+    @PostConstruct
+    public void initialLoad() {
+        new Thread(() -> {
+            try {
+                Thread.sleep(10000);
+                addProducts();
+            } catch (Exception e) {}
+        }).start();
+    }
 
     @PostMapping("/load")
     private ResponseEntity<?> addProducts() throws IOException {
