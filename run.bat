@@ -1,1 +1,1 @@
-cd product-service & gradlew bootJar -Pprod jibDockerBuild & cd .. & cd ServiceDiscovery & gradlew bootJar -Pprod jibDockerBuild & cd .. & cd ConfigServer & gradlew bootJar -Pprod jibDockerBuild & cd .. & docker-compose up -d
+cd product-service & gradlew bootJar -Pprod jibDockerBuild & cd .. & cd ServiceDiscovery & gradlew bootJar -Pprod jibDockerBuild & cd .. & cd ConfigServer & gradlew bootJar -Pprod jibDockerBuild & cd .. & docker-compose up -d & start chrome http://localhost:8761
