@@ -1,0 +1,1 @@
+cd product-service & gradlew bootJar -Pprod jibDockerBuild & cd .. & cd ServiceDiscovery & gradlew bootJar -Pprod jibDockerBuild & cd .. & cd ConfigServer & gradlew bootJar -Pprod jibDockerBuild & cd .. & docker-compose up -d

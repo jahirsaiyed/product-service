@@ -2,9 +2,9 @@
 version: '3.8'
 services:
   samplesearch-app:
-    image: jahirss/product-search:latest
-    ports:
-      - 6012:6012
+    image: product-search:0.0.1-SNAPSHOT
+#    ports:
+#      - 6012:6012
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
@@ -79,7 +79,7 @@ services:
     ports:
       - 9411:9411
 
-  eureka-server:
-    image:  jahirss/service-discovery
-    ports:
-      - 8761:8761
+#  eureka-server:
+#    image:  jahirss/service-discovery
+#    ports:
+#      - 8761:8761
