@@ -1,2 +1,5 @@
 /centralized-configs/.idea/*
 /.gradle/*
+/mongo-volume/*
+/journal/*
+/diagnostic.data/*

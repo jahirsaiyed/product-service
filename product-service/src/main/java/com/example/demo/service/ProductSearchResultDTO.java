@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.service.dto.ProductSearchDTO;
+import com.example.demo.service.dto.ProductDTO;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -12,5 +12,5 @@ public class ProductSearchResultDTO {
     private long totalCount;
     private String latency;
     private String queryLatency;
-    private List<ProductSearchDTO> products = new ArrayList<>();
+    private List<ProductDTO> products = new ArrayList<>();
 }

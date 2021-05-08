@@ -1,9 +1,17 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
   cloud:
     config:
       uri: "http://config-server:8888"
-
-eureka:
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: product-service
   client:
     serviceUrl:
-      defaultZone: "http://registry-service:8761/eureka"
+      defaultZone: "http://registry-service:8761/eureka/"
+  kafka:
+    bootstrap-servers: "kafka:9092"
