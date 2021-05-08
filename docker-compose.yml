@@ -90,9 +90,12 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka
   zookeeper:
     image: confluentinc/cp-zookeeper:5.5.3
+    container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 2181:2181
   kibana:
     image: docker.elastic.co/kibana/kibana:7.10.0
     container_name: kibana

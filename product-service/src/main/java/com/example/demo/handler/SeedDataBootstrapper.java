@@ -67,6 +67,7 @@ public class SeedDataBootstrapper {
 
     private void createIndex() {
         try {
+            log.info("Creating index on elasticsearch");
             File indexDefinition = new ClassPathResource("product-master-idx.json").getFile();
             Map index = objectMapper.readValue(indexDefinition, Map.class);
             restTemplate.put(elasticSearchUrls + "/products-master-idx", index, String.class);
